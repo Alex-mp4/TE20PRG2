@@ -20,14 +20,14 @@ public class XORcrypt {
     }
 
     private static int scrobbler(int c, int key, int p) {
-        if (p == 1) {
+        //if (p == 1) {
             int crypt = (c^key);
             return crypt;
-        }
-        else {
+        //}
+        /*else {
             int decrypt = (crypt^key);
             return decrypt;
-        }
+        }*/
 
 
     }
