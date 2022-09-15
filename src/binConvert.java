@@ -32,17 +32,22 @@ public class binConvert {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        DataOutputStream s;
+        String output;
         BufferedWriter bw = new BufferedWriter(fw);
         PrintWriter utFil = new PrintWriter(bw);
         for (int i = 0 ; i < 1920*1080 ; i++) {
             try {
-                BufferedReader fr = new BufferedReader(new FileReader(filnamn));
-                String s = fr.readLine();
-                s = Integer.toBinaryString(Integer.parseInt(s));
-                //System.out.println(s);
+                BufferedReader fr = new BufferedReader(new FileReader("numbers.txt"));
                 bw = new BufferedWriter(new OutputStreamWriter(fos));
                 for (int o = 0 ; o < 1920*1080 ; o++) {
                     try {
+                        s = new DataOutputStream(new BufferedOutputStream((new FileOutputStream("numbers.txt"))));
+                        //output = new String(s.toByteArray(), output);
+                        //s = fr.readLine();
+                        //s = String.valueOf(Integer.parseInt(s));
+                        //s = Integer.toBinaryString(Integer.parseInt(s));
+                        //System.out.println(s);
                         bw.write("" + s);
                         bw.newLine();
                     } catch (IOException e) {
