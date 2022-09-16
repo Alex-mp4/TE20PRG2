@@ -7,9 +7,15 @@ public class XORcrypt {
         String cmess = "";
         int key = '(';
         int x = 0;
+        char v = 0;
         for (int i = 0; i < message.length(); i++) {
             int c = message.charAt(x);
-            char v = (char)scrobbler(c, key, p);
+            if (p == 1) {
+                v = (char)scrobbler(c, key, p);
+            }
+            else {
+                v = (char)descrobbler(key, c);
+            }
             cmess = cmess + v;
             x++;
             if (x > message.length()) {
@@ -19,16 +25,11 @@ public class XORcrypt {
         System.out.println(cmess);
     }
 
+    private static int descrobbler(int key, int c) {
+        return (c^key);
+    }
+
     private static int scrobbler(int c, int key, int p) {
-        //if (p == 1) {
-            int crypt = (c^key);
-            return crypt;
-        //}
-        /*else {
-            int decrypt = (crypt^key);
-            return decrypt;
-        }*/
-
-
+        return (c^key);
     }
 }
